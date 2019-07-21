@@ -1,0 +1,16 @@
+div {
+    height: auto;
+    min-height: 100%;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+}
+
+div{
+    background-image: url("/assets/home.jpg");
+    font-size: xx-large;
+    padding: 100px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+

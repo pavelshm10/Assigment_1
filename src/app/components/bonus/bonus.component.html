@@ -1,0 +1,14 @@
+<label><b>Table for {{company}}:</b></label>
+<table >
+         <tr>
+            <th>Movie ID</th>
+            <th>Popularity</th>
+            <th>Movie Duration</th>
+        </tr>
+        
+        <tr *ngFor="let m of movieArr">
+            <td>{{ m.movieId }}</td>
+            <td>{{ m.popularity }}</td> 
+            <td>{{ m.movieDuration }}</td> 
+        </tr> 
+</table> 

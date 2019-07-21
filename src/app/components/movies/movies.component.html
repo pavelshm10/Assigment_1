@@ -1,0 +1,63 @@
+<h1>Favorite Movies</h1>
+
+<mat-form-field appearance="fill">
+  <input (keyup)="applyFilter($event.target.value)" matInput placeholder="Search..." onfocus="this.placeholder=''" onblur="this.placeholder='Search'">
+</mat-form-field>
+<hr>
+
+
+<mat-table #table multiTemplateDataRows [dataSource]="dataSource" matSort>  
+  <ng-container matColumnDef="name" >
+    <mat-header-cell  *matHeaderCellDef mat-sort-header > Name </mat-header-cell>
+    <mat-cell id='name' *matCellDef="let element">
+      {{element.name}} </mat-cell>
+  </ng-container>
+      
+  <ng-container matColumnDef="code">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Code </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.code}} </mat-cell>
+  </ng-container>
+ 
+  <ng-container matColumnDef="year">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Year </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.year}} </mat-cell>
+  </ng-container>
+ 
+  <ng-container matColumnDef="producer">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Producer </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.producer}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="rating">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Rating </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.rating}} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  
+  <mat-row *matRowDef="let row; columns: displayedColumns;" 
+    matRipple 
+    class="element-row" 
+    [cdkDetailRow]="row" [cdkDetailRowTpl]="tpl">
+  </mat-row>  
+</mat-table> 
+
+
+<ng-template #tpl let-element>
+  <div class="mat-row detail-row" [@detailExpand] style="overflow: hidden">
+      <span id='movieId'(click)="axpend2()"><b>Movie Id: </b>{{element.movieId}}&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;</span> 
+      <span><b>Movie Popularity: </b>{{element.popularity}}&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <span><b>Movie Duration: </b>{{element.movieDuration}}&nbsp;&nbsp;&nbsp;&nbsp;</span> 
+      <br>
+      <!-- Answer for section 8 -->
+      <!-- <app-info *ngIf='flag' [input]=element></app-info> -->
+      
+      <!-- Bonus -->
+      <app-bonus *ngIf='flag' [input2]=element></app-bonus>
+  </div>
+</ng-template>  
+
+
+
+ 
+
